@@ -5,4 +5,3 @@ enableXsrfProtection = false
 enableCORS = false
 enableWebsocketCompression = false
 maxUploadSize = 1000
-enableStaticServing = true
