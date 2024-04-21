@@ -1,8 +1,10 @@
 FROM python:3.11
 
 # Copy all the files from the folders the Dockerfile is to the container app folder streamlit cannot run from root
-COPY ./app ./app
+
+
 WORKDIR /app
+COPY ./app/requirements.txt requirements.txt
 # Install the modules specified in the requirements.txt
 RUN apt-get update && apt-get install -y \
    && apt-get install -y cmake build-essential gcc gfortran libopenblas-dev python3-h5py ca-certificates lsb-release wget libhdf5-dev\
@@ -15,6 +17,7 @@ RUN apt-get update && apt-get install -y \
    && pip3 install ninja \
    && pip3 install -r requirements.txt
 
+COPY ./app .
 # The port on which a container listens for connections
 EXPOSE 8501
 

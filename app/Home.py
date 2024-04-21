@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 if st.session_state.get('c', None) is None:
-  st.session_state['c'] = 0.01
+  st.session_state['c'] = 0.02
 def replace_vars(text, **kwargs):
   for key, value in kwargs.items():
     if isinstance(value, float):
@@ -28,7 +28,7 @@ if __name__ == '__main__':
   pc = np.linspace(0, 1, 100)
   pt = pc*.938/(.938*pc + .04*(1.0-pc))
   with st.expander("## Probability of Test Given Prior $P(C)$"):
-    c = st.slider("Select a value for $P(C)$", 0.0, 1.0, 0.01, 0.01, key='c')
+    c = st.slider("Select a value for $P(C)$", 0.0, 1.0, step=0.1, key='c')
     fig, ax = plt.subplots()
     ax.plot(pc, pt, color='black')
     ax.scatter(c, c*.938/(.938*c + .04*(1.0-c)), color='red', s=50)

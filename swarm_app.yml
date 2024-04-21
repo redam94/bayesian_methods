@@ -14,8 +14,8 @@ services:
       labels:
         traefik.http.routers.bayesapp.entrypoints: http
         traefik.http.services.bayesapp-secured.loadbalancer.server.port: '8501'
-        traefik.http.middlewares.bayesapp.redirectscheme.scheme: https
-        traefik.http.middlewares.bayesapp.redirectscheme.permanent: 'true'
+        traefik.http.middlewares.bayesapp-https-redirect.redirectscheme.scheme: https
+        traefik.http.middlewares.bayesapp-https-redirect.redirectscheme.permanent: 'true'
         traefik.http.routers.bayesapp.rule: Host(`bayesian_methods.mattreda.pro`)
         traefik.constraint-label: traefik-public
         traefik.http.routers.bayesapp-secured.tls.certresolver: le
