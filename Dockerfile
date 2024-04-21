@@ -5,7 +5,7 @@ COPY ./app ./app
 WORKDIR /app
 # Install the modules specified in the requirements.txt
 RUN apt-get update && apt-get install -y \
-   && apt-get install -y cmake build-essential gcc gfortran libopenblas-dev python3-h5py ca-certificates lsb-release wget \
+   && apt-get install -y cmake build-essential gcc gfortran libopenblas-dev python3-h5py ca-certificates lsb-release wget libhdf5-dev\
    #&& wget https://apache.jfrog.io/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb \
    #&& apt-get install -y ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb \
    #&& apt-get update \
