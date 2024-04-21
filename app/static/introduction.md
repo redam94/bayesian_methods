@@ -6,7 +6,7 @@ When we model we often have a priori knowledge, or beliefs, about the system we 
 These beliefs place reasonable contraints on what we would consider plausible 
 without significant evidence to the contrary.
 
-<img src="https://imgs.xkcd.com/comics/frequentists_vs_bayesians_2x.png" alt="Did the sun just explode?" width="300"/>
+<img src="https://imgs.xkcd.com/comics/frequentists_vs_bayesians_2x.png" alt="Did the sun just explode?" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"/>
 
 In our modeling experience, for example, we might have the belief that
 the effects of marketing are positive or at worst zero but not negative. 
