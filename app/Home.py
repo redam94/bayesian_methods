@@ -78,8 +78,8 @@ def plot_prob(c: float):
   ax.scatter(c, c*.938/(.938*c + .04*(1.0-c)), color='red', s=50)
   
   ax.set_xlabel("$P(C)$")
-  ax.set_ylabel("$P(T|C)$")
-  ax.set_title("Probability of Test Given Prior $P(C)$")
+  ax.set_ylabel("$P(C|T)$")
+  ax.set_title("Probability of Having Covid After Positive Test:\nGiven Prior $P(C)$")
   return fig
 
 if __name__ == '__main__':
