@@ -21,7 +21,7 @@ def replace_vars(text, **kwargs):
 def plot_geo(p, sp, sn):
   prob_T = p*sn + (1-p)*(1-sp)
   fig, ax = plt.subplots()
-  ax.vlines(p, 0, 1, color='black')
+  ax.vlines(p, 0, 1, color='black', lw=.5)
   ax.hlines(sn, 0, p, color='black')
   ax.hlines(sp, p, 1, color='black')
   ax.set_xlabel("$P(C)$")
@@ -50,7 +50,7 @@ def plot_geo(p, sp, sn):
            +("$=\\frac{tp}{tp+fp}$\n"
            .replace("tp", f"{c*sn:0.2f}")
            .replace("fp", f"{(1-c)*sp:0.2f}")
-           )+ f"={c*sn/(c*sn+(1-c)*sp):0.2f}"), fontsize=8, color='black',
+           )+ f"$={c*sn/(c*sn+(1-c)*sp):0.2f}$"), fontsize=8, color='black',
           horizontalalignment='center', verticalalignment='center')
 
   fn_label = mpatches.Rectangle((1.08, .915-3*(.1)), .02, .02, color='pink', alpha=0.5)
@@ -64,7 +64,8 @@ def plot_geo(p, sp, sn):
   ax.add_patch(false_pos)
   true_neg = mpatches.Rectangle((p,sp), 1-p, 1-sp, color='lightgreen', alpha=0.5)
   ax.add_patch(true_neg)
-  ax.set_xlim(0, 1.4)
+  ax.set_xlim(0, 1.45)
+  ax.set_title("Geometric Interpretation of Bayes Theorem")
   #ax.axis('equal')
   return fig
   
