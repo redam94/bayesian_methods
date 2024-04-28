@@ -2,3 +2,13 @@
 path = "Home.py"
 name = "Home"
 icon = "🏠"
+
+[[pages]]
+path = "my_pages/Sampling.py"
+name = "Intro to Sampling"
+icon = "∭"
+
+[[pages]]
+path = "my_pages/Probability_Review.py"
+name = "Proability Theory"
+icon = "%"

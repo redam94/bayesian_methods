@@ -3,5 +3,6 @@ headless = true
 port = 8501
 enableXsrfProtection = false
 enableCORS = false
+enableStaticServing = true
 enableWebsocketCompression = false
 maxUploadSize = 1000
