@@ -123,3 +123,8 @@ def plot_posterior(c: float):
   ax.set_ylabel("$P(C|T)$")
   ax.set_title("Probability of Having Covid After Positive Test:\nGiven Prior $P(C)$")
   return fig
+
+
+@st.cache_resource()
+def plot_mh_step(d):
+  pass
