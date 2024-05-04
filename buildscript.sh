@@ -6,5 +6,5 @@ docker pull ${IMAGE}:latest || \
 
 docker buildx build \
   --cache-from ${IMAGE}:latest \
-  -t redam94/bayesian_methods:latest \
+  -t ${IMAGE}:latest \
   --platform=linux/arm64/v8,linux/amd64 -f Dockerfile . --push
