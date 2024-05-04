@@ -1,9 +1,9 @@
 version: '3.3'
 services:
-  bayes_methods:
-    image: redam94/bayesian_methods:0.0.1-web3
+  bayesapp:
+    image: redam94/bayesian_methods:latest
     ports:
-     - 30003:8501
+     - 30004:8501
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock
     networks:
@@ -11,18 +11,20 @@ services:
     logging:
       driver: json-file
     deploy:
+      replicas: 4
       labels:
+        traefik.http.services.bayesapp-secured.loadbalancer.sticky.cookie: 'true'
         traefik.http.routers.bayesapp.entrypoints: http
         traefik.http.services.bayesapp-secured.loadbalancer.server.port: '8501'
-        traefik.http.middlewares.bayesapp-https-redirect.redirectscheme.scheme: https
-        traefik.http.middlewares.bayesapp-https-redirect.redirectscheme.permanent: 'true'
-        traefik.http.routers.bayesapp.rule: Host(`bayesian_methods.mattreda.pro`)
+        traefik.http.middlewares.bayesapp.redirectscheme.scheme: https
+        traefik.http.middlewares.bayesapp.redirectscheme.permanent: 'true'
+        traefik.http.routers.bayesapp.rule: Host(`bayesian.methods.mattreda.pro`)
         traefik.constraint-label: traefik-public
         traefik.http.routers.bayesapp-secured.tls.certresolver: le
         traefik.docker.network: traefik-public
         traefik.enable: 'true'
         traefik.http.routers.bayesapp-secured.entrypoints: https
-        traefik.http.routers.bayesapp-secured.rule: Host(`bayesian_methods.mattreda.pro`)
+        traefik.http.routers.bayesapp-secured.rule: Host(`bayesian.methods.mattreda.pro`)
       restart_policy:
         condition: on-failure
 networks:
